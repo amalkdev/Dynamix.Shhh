@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Shhh.Views.SilensorAction"
+             Title="{Binding Silensor.Name}">
+    <ContentPage.Content>
+        <Grid Padding="15">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Switch
+                IsToggled="{Binding Silensor.Open}"
+                Grid.Row="0"
+                Grid.Column="1">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="On">
+                            <VisualState.Setters>
+                                <Setter Property="ThumbColor" Value="{StaticResource Primary_Color}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Off">
+                            <VisualState.Setters>
+                                <Setter Property="ThumbColor" Value="Gray"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Switch>
+
+            <Button 
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Delete">
+            </Button>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

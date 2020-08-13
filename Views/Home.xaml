@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:customview="clr-namespace:Shhh.CustomView"
+             mc:Ignorable="d"
+             x:Class="Shhh.Views.Home"
+             BackgroundColor="#eee">
+    <ContentPage.Content>
+        <Grid>
+            <ListView 
+                x:Name="SilensorsList"
+                ItemsSource="{Binding Data}"
+                SeparatorVisibility="None"
+                HasUnevenRows="true"
+                ItemTapped="SilensorsList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                Margin="15,10"
+                                Padding="0"
+                                HasShadow="True"
+                                CornerRadius="8">
+                                <Grid RowSpacing="10" Padding="15">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label 
+                                        FontSize="18"
+                                        FontAttributes="Bold"
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Text="{Binding Name}">
+                                    </Label>
+
+                                    <Label 
+                                        Grid.Row="0" 
+                                        FontSize="13"
+                                        Grid.Column="1"
+                                        Text="{Binding CreatedOn}">
+                                    </Label>
+
+                                    <Label 
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        Text="{Binding Remarks}">
+                                    </Label>
+
+                                    <BoxView
+                                        IsVisible="{Binding Open}"
+                                        Margin="-15,-15,0,-15"
+                                        WidthRequest="5"
+                                        HorizontalOptions="Start"
+                                        BackgroundColor="Green"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0">
+                                    </BoxView>
+                                    
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button
+                Margin="0,0,15,15"
+                Padding="0"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                HeightRequest="50"
+                WidthRequest="50"
+                CornerRadius="25"
+                Text="+"
+                BackgroundColor="{StaticResource Primary_Color}"
+                BorderColor="{StaticResource Primary_Color}"
+                TextColor="White"
+                FontSize="25"
+                Clicked="AddButton_Clicked">
+            </Button>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
